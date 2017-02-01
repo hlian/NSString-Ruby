@@ -761,7 +761,17 @@ NSString* _stringRepresentationOf(id<Concatenatable> object){
     else if(s[i] >= 97 && s[i] <= 122)
       s[i] = s[i] - 32;
   }
-  return [NSString stringWithCharacters:s length:self.length];
+  NSString *str = [NSString stringWithCharacters:s length:self.length];
+    free(s);
+    return str;
+}
+
+- (NSString *)ellipsize:(NSUInteger)len {
+    if (self.length <= len) {
+        return self;
+    } else {
+        return [[self substringToIndex:len] stringByAppendingString:@"…"];
+    }
 }
 
 #pragma mark - Subscript Protocol Methods

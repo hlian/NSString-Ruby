@@ -85,6 +85,8 @@
 -(NSInteger )sum:(NSInteger )bit;
 -(NSString*)swapcase;
 
+- (NSString *)ellipsize:(NSUInteger)len;
+
 //Subscript Protocol
 -(id)objectAtIndexedSubscript:(NSUInteger)index;
 -(id)objectForKeyedSubscript:(id)key;
